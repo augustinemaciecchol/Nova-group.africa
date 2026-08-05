@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 180" role="img" aria-labelledby="qsMarkTitle">
+  <title id="qsMarkTitle">Quantum Synergy Limited mark</title>
+  <g>
+    <rect x="5"   y="70" width="30" height="100" rx="15" fill="#14A6BB"/>
+    <rect x="45"  y="45" width="30" height="125" rx="15" fill="#1C7FA3"/>
+    <path d="M100 6 L128 34 Q130 40 130 45 L130 170 L70 170 L70 45 Q70 40 72 34 Z" fill="#1B3F63"/>
+    <rect x="125" y="45" width="30" height="125" rx="15" fill="#1C7FA3"/>
+    <rect x="165" y="70" width="30" height="100" rx="15" fill="#14A6BB"/>
+  </g>
+</svg>
