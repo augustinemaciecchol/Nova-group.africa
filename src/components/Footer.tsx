@@ -18,7 +18,7 @@ const companyLinks = [
 
 export function Footer() {
   return (
-    <footer className="glass-panel border-t border-white/5">
+    <footer className="glass-panel border-t border-[rgba(20,45,80,0.08)]">
       <div className="container pt-16">
         <div className="brand-card flex flex-col items-center gap-8 p-8 text-center sm:p-10 md:flex-row md:items-center md:text-left">
           <Image
@@ -90,7 +90,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-white/5">
+      <div className="border-t border-[rgba(20,45,80,0.08)]">
         <div className="container py-6 text-center text-xs text-ink-3">
           &copy; {new Date().getFullYear()} Quantum Synergy Limited. All rights reserved. &middot; Republic of South Sudan
         </div>

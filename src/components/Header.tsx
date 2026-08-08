@@ -27,7 +27,7 @@ export function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-[background,border-color,box-shadow] duration-300 ${
         scrolled
-          ? "glass-panel border-b border-white/5 shadow-[0_10px_30px_rgba(0,0,0,0.35)]"
+          ? "glass-panel border-b border-[rgba(20,45,80,0.08)] shadow-[0_10px_30px_rgba(20,45,80,0.1)]"
           : "border-b border-transparent"
       }`}
     >
@@ -88,7 +88,7 @@ export function Header() {
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -8 }}
             transition={{ duration: 0.18, ease: [0.23, 1, 0.32, 1] }}
-            className="glass-panel border-b border-white/5 px-6 pb-6 pt-2 md:hidden"
+            className="glass-panel border-b border-[rgba(20,45,80,0.08)] px-6 pb-6 pt-2 md:hidden"
           >
             <div className="flex flex-col gap-1">
               {nav.map((item) => (
@@ -96,7 +96,7 @@ export function Header() {
                   key={item.href}
                   href={item.href}
                   onClick={() => setOpen(false)}
-                  className="rounded-xl px-2 py-3 text-[0.95rem] font-medium text-ink-1 transition-colors hover:bg-white/5 hover:text-ink-0"
+                  className="rounded-xl px-2 py-3 text-[0.95rem] font-medium text-ink-1 transition-colors hover:bg-[rgba(20,45,80,0.05)] hover:text-ink-0"
                 >
                   {item.label}
                 </a>

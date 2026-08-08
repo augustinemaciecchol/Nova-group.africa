@@ -37,7 +37,7 @@ export function Divisions() {
                   aria-selected={isActive}
                   onClick={() => setActiveId(d.id)}
                   className={`relative rounded-full px-4 py-2.5 text-[0.85rem] font-semibold transition-colors duration-200 sm:px-5 ${
-                    isActive ? "text-bg-950" : "text-ink-2 hover:text-ink-0"
+                    isActive ? "text-white" : "text-ink-2 hover:text-ink-0"
                   }`}
                 >
                   {isActive && (
