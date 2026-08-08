@@ -1,0 +1,416 @@
+@import "tailwindcss";
+
+/* ---------------------------------------------------------------- *
+ * Design tokens
+ * ---------------------------------------------------------------- */
+
+:root {
+  --bg-950: #eef1f6;
+  --bg-900: #e5e9f1;
+  --bg-800: #dbe1ea;
+  --bg-700: #c3cddc;
+
+  --brand-teal: #12a3b4;
+  --brand-blue: #197b9e;
+  --brand-navy: #1e4b74;
+  --brand-ink: #092956;
+
+  --ink-0: #0c2038;
+  --ink-1: #3c4d63;
+  --ink-2: #64758c;
+  --ink-3: #7c8da5;
+
+  --glass-fill-1: rgba(255, 255, 255, 0.72);
+  --glass-fill-2: rgba(255, 255, 255, 0.32);
+  --glass-border: rgba(20, 45, 80, 0.1);
+  --glass-border-hi: rgba(20, 45, 80, 0.26);
+
+  --neo-shadow-dark: rgba(157, 172, 196, 0.55);
+  --neo-shadow-light: rgba(255, 255, 255, 0.9);
+
+  --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
+  --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
+
+  --font-display: var(--font-poppins);
+  --font-body: var(--font-inter);
+}
+
+@theme inline {
+  --color-bg-950: var(--bg-950);
+  --color-bg-900: var(--bg-900);
+  --color-bg-800: var(--bg-800);
+  --color-bg-700: var(--bg-700);
+
+  --color-teal: var(--brand-teal);
+  --color-blue: var(--brand-blue);
+  --color-navy: var(--brand-navy);
+  --color-ink: var(--brand-ink);
+
+  --color-ink-0: var(--ink-0);
+  --color-ink-1: var(--ink-1);
+  --color-ink-2: var(--ink-2);
+  --color-ink-3: var(--ink-3);
+
+  --font-sans: var(--font-body);
+  --font-display: var(--font-display);
+}
+
+/* ---------------------------------------------------------------- *
+ * Base
+ * ---------------------------------------------------------------- */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  color-scheme: light;
+}
+
+body {
+  background: var(--bg-950);
+  color: var(--ink-1);
+  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
+  color: var(--ink-0);
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+::selection {
+  background: var(--brand-teal);
+  color: #ffffff;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-950);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--bg-700);
+  border-radius: 999px;
+  border: 2px solid var(--bg-950);
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--brand-navy);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ---------------------------------------------------------------- *
+ * Layout helpers
+ * ---------------------------------------------------------------- */
+
+.container {
+  width: 100%;
+  max-width: 1180px;
+  margin-inline: auto;
+  padding-inline: 1.5rem;
+}
+
+.section {
+  position: relative;
+  padding-block: clamp(4rem, 8vw, 7.5rem);
+}
+
+.section-kicker {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.8125rem;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--brand-teal);
+  margin-bottom: 0.75rem;
+}
+
+.section-kicker::before {
+  content: "";
+  width: 22px;
+  height: 2px;
+  background: linear-gradient(90deg, var(--brand-teal), transparent);
+  border-radius: 2px;
+}
+
+.center {
+  text-align: center;
+}
+
+.section-lead {
+  color: var(--ink-2);
+  font-size: 1.0625rem;
+  max-width: 46rem;
+}
+
+.center.section-lead,
+.center.section-kicker {
+  margin-inline: auto;
+}
+.center.section-kicker::before {
+  display: none;
+}
+
+/* ---------------------------------------------------------------- *
+ * Ambient background (mesh glow + grain)
+ * ---------------------------------------------------------------- */
+
+.ambient-mesh {
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  pointer-events: none;
+  background:
+    radial-gradient(46rem 30rem at 12% -8%, rgba(18, 163, 180, 0.14), transparent 60%),
+    radial-gradient(38rem 26rem at 100% 18%, rgba(25, 123, 158, 0.12), transparent 60%),
+    radial-gradient(50rem 34rem at 40% 115%, rgba(30, 75, 116, 0.14), transparent 60%),
+    var(--bg-950);
+}
+
+.ambient-grain {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+  opacity: 0.025;
+  mix-blend-mode: multiply;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* ---------------------------------------------------------------- *
+ * Glass + Neomorphism hybrid surfaces
+ *
+ * Glassmorphism gives translucency/blur/depth (materials).
+ * Neomorphism gives the dual soft-shadow "extrusion" that makes a
+ * light, flat background feel like it has physical, pressable surfaces —
+ * a cool gray shadow where light falls away, a bright highlight where it
+ * catches, both cast on the same soft blue-gray page tone.
+ * ---------------------------------------------------------------- */
+
+.glass-neo {
+  position: relative;
+  background: linear-gradient(160deg, var(--glass-fill-1), var(--glass-fill-2));
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
+  border: 1px solid var(--glass-border);
+  border-radius: 1.25rem;
+  box-shadow:
+    9px 9px 20px var(--neo-shadow-dark),
+    -7px -7px 18px var(--neo-shadow-light),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  transition:
+    transform 260ms var(--ease-out-strong),
+    box-shadow 260ms var(--ease-out-strong),
+    border-color 260ms var(--ease-out-strong);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .glass-neo-hover:hover {
+    transform: translateY(-4px);
+    border-color: var(--glass-border-hi);
+    box-shadow:
+      12px 12px 28px var(--neo-shadow-dark),
+      -9px -9px 22px var(--neo-shadow-light),
+      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+  }
+}
+
+.glass-neo-inset {
+  background: linear-gradient(160deg, rgba(20, 45, 80, 0.05), rgba(20, 45, 80, 0.02));
+  border: 1px solid var(--glass-border);
+  border-radius: 0.85rem;
+  box-shadow:
+    inset 5px 5px 10px rgba(157, 172, 196, 0.45),
+    inset -4px -4px 10px rgba(255, 255, 255, 0.85);
+}
+
+/* Bright top edge = light catching the material (apple-design materials cue).
+ * This surface floats directly over shifting hero content, so it carries a
+ * near-opaque base under the blur — a thin tint alone lets the ambient glow
+ * blobs smear through unevenly and wreck text contrast. */
+.glass-panel {
+  background: linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(238, 242, 247, 0.82));
+  -webkit-backdrop-filter: blur(20px) saturate(140%);
+  backdrop-filter: blur(20px) saturate(140%);
+  border-top: 1px solid rgba(255, 255, 255, 0.9);
+  border-bottom: 1px solid rgba(20, 45, 80, 0.08);
+}
+
+/* ---------------------------------------------------------------- *
+ * Buttons
+ * ---------------------------------------------------------------- */
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 0.85rem 1.6rem;
+  border-radius: 999px;
+  font-weight: 600;
+  font-size: 0.9375rem;
+  white-space: nowrap;
+  transition: transform 160ms var(--ease-out-strong), box-shadow 200ms var(--ease-out-strong),
+    border-color 200ms var(--ease-out-strong), background 200ms var(--ease-out-strong);
+}
+
+.btn:active {
+  transform: scale(0.97);
+}
+
+.btn-primary {
+  color: #ffffff;
+  background: linear-gradient(135deg, var(--brand-teal), var(--brand-blue));
+  box-shadow:
+    6px 6px 16px rgba(157, 172, 196, 0.6),
+    -4px -4px 12px rgba(255, 255, 255, 0.7),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-primary:hover {
+    box-shadow:
+      8px 8px 20px rgba(157, 172, 196, 0.7),
+      -5px -5px 14px rgba(255, 255, 255, 0.8),
+      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+  }
+}
+
+.btn-outline {
+  color: var(--ink-0);
+  background: rgba(255, 255, 255, 0.55);
+  border: 1px solid var(--glass-border-hi);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 1px 3px rgba(20, 45, 80, 0.08);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-outline:hover {
+    border-color: rgba(20, 45, 80, 0.4);
+    background: rgba(255, 255, 255, 0.85);
+  }
+}
+
+.btn-block {
+  width: 100%;
+}
+
+.btn-ghost-light {
+  color: var(--brand-ink);
+  background: rgba(9, 41, 86, 0.06);
+  border: 1px solid rgba(9, 41, 86, 0.18);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-ghost-light:hover {
+    background: rgba(9, 41, 86, 0.1);
+    border-color: rgba(9, 41, 86, 0.34);
+  }
+}
+
+/* ---------------------------------------------------------------- *
+ * Brand kit card — an elevated white plate the logo's own white
+ * backing sits on seamlessly, lifted off the footer with a soft,
+ * cool-toned shadow instead of a harsh dark one.
+ * ---------------------------------------------------------------- */
+
+.brand-card {
+  position: relative;
+  border-radius: 1.75rem;
+  background: linear-gradient(165deg, #ffffff, #f1f4f8);
+  box-shadow:
+    0 20px 45px rgba(20, 45, 80, 0.14),
+    0 1px 0 rgba(255, 255, 255, 0.9) inset,
+    0 -14px 30px rgba(9, 41, 86, 0.04) inset;
+}
+
+/* ---------------------------------------------------------------- *
+ * Text utilities
+ * ---------------------------------------------------------------- */
+
+.text-accent {
+  background: linear-gradient(120deg, var(--brand-teal), var(--brand-blue) 70%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* ---------------------------------------------------------------- *
+ * Form fields (neomorphic inset)
+ * ---------------------------------------------------------------- */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  margin-bottom: 1.1rem;
+}
+
+.field label {
+  font-size: 0.8125rem;
+  font-weight: 600;
+  color: var(--ink-2);
+}
+
+.field input,
+.field select,
+.field textarea {
+  font: inherit;
+  color: var(--ink-0);
+  background: linear-gradient(160deg, rgba(20, 45, 80, 0.05), rgba(20, 45, 80, 0.02));
+  border: 1px solid var(--glass-border);
+  border-radius: 0.7rem;
+  padding: 0.75rem 0.9rem;
+  box-shadow:
+    inset 4px 4px 9px rgba(157, 172, 196, 0.4),
+    inset -3px -3px 8px rgba(255, 255, 255, 0.7);
+  transition: border-color 180ms var(--ease-out-strong), box-shadow 180ms var(--ease-out-strong);
+}
+
+.field input::placeholder,
+.field textarea::placeholder {
+  color: var(--ink-3);
+}
+
+.field input:focus,
+.field select:focus,
+.field textarea:focus {
+  outline: none;
+  border-color: var(--brand-teal);
+  box-shadow:
+    inset 4px 4px 9px rgba(157, 172, 196, 0.4),
+    inset -3px -3px 8px rgba(255, 255, 255, 0.7),
+    0 0 0 3px rgba(18, 163, 180, 0.2);
+}
+
+.field select {
+  appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364758c' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.85rem center;
+  padding-right: 2.25rem;
+}
