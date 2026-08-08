@@ -28,6 +28,14 @@ export const metadata: Metadata = {
     description:
       "A diversified multi-sector conglomerate operating across all 10 states of the Republic of South Sudan.",
     type: "website",
+    images: [{ url: "/og-image.png", width: 1200, height: 630, alt: "Quantum Synergy Limited" }],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Quantum Synergy Limited | Building the Future, Powering Progress",
+    description:
+      "A diversified multi-sector conglomerate operating across all 10 states of the Republic of South Sudan.",
+    images: ["/og-image.png"],
   },
 };
 

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { BrandMark } from "./BrandMark";
 
 const divisionLinks = [
@@ -18,6 +19,36 @@ const companyLinks = [
 export function Footer() {
   return (
     <footer className="glass-panel border-t border-white/5">
+      <div className="container pt-16">
+        <div className="brand-card flex flex-col items-center gap-8 p-8 text-center sm:p-10 md:flex-row md:items-center md:text-left">
+          <Image
+            src="/brand/quantum-synergy-logo.png"
+            alt="Quantum Synergy Limited logo"
+            className="h-24 w-auto shrink-0 sm:h-28"
+            width={1080}
+            height={871}
+            priority={false}
+          />
+          <div className="flex-1">
+            <h3 className="text-lg font-bold" style={{ color: "var(--brand-ink)" }}>
+              Brand Assets
+            </h3>
+            <p className="mt-1.5 max-w-md text-sm leading-relaxed" style={{ color: "rgba(9,41,86,0.72)" }}>
+              Official Quantum Synergy Limited logo files for press, partners, and
+              procurement documentation.
+            </p>
+          </div>
+          <div className="flex shrink-0 flex-col gap-3 sm:flex-row">
+            <a href="/brand/quantum-synergy-logo.png" download className="btn btn-primary">
+              Download Logo (PNG)
+            </a>
+            <a href="/brand/quantum-synergy-mark.svg" download className="btn btn-ghost-light">
+              Download Mark (SVG)
+            </a>
+          </div>
+        </div>
+      </div>
+
       <div className="container flex flex-col gap-12 py-16 md:flex-row md:justify-between">
         <div className="max-w-xs">
           <a href="#top" className="flex items-center gap-2.5">

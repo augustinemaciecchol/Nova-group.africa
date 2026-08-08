@@ -10,9 +10,10 @@
   --bg-800: #0c1626;
   --bg-700: #101d32;
 
-  --brand-teal: #15a3b4;
-  --brand-blue: #1d7c9e;
-  --brand-navy: #1e4a71;
+  --brand-teal: #12a3b4;
+  --brand-blue: #197b9e;
+  --brand-navy: #1e4b74;
+  --brand-ink: #092956;
 
   --ink-0: #f5f8fb;
   --ink-1: #c7d3e0;
@@ -43,6 +44,7 @@
   --color-teal: var(--brand-teal);
   --color-blue: var(--brand-blue);
   --color-navy: var(--brand-navy);
+  --color-ink: var(--brand-ink);
 
   --color-ink-0: var(--ink-0);
   --color-ink-1: var(--ink-1);
@@ -312,6 +314,34 @@ h4 {
 
 .btn-block {
   width: 100%;
+}
+
+.btn-ghost-light {
+  color: var(--brand-ink);
+  background: rgba(9, 41, 86, 0.06);
+  border: 1px solid rgba(9, 41, 86, 0.18);
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .btn-ghost-light:hover {
+    background: rgba(9, 41, 86, 0.1);
+    border-color: rgba(9, 41, 86, 0.34);
+  }
+}
+
+/* ---------------------------------------------------------------- *
+ * Brand kit card — a light "plate" the logo's own white backing sits
+ * on naturally, set against the dark footer as a deliberate spotlight.
+ * ---------------------------------------------------------------- */
+
+.brand-card {
+  position: relative;
+  border-radius: 1.75rem;
+  background: linear-gradient(165deg, #f4f7f9, #e3eaef);
+  box-shadow:
+    0 24px 60px rgba(0, 0, 0, 0.45),
+    0 1px 0 rgba(255, 255, 255, 0.7) inset,
+    0 -14px 30px rgba(9, 41, 86, 0.06) inset;
 }
 
 /* ---------------------------------------------------------------- *
