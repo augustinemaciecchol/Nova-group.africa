@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dado IT — Infrastructure You Can See Through</title>
+<meta name="description" content="Dado IT delivers managed IT, cloud, cybersecurity, and software engineering for teams that can't afford downtime.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230B0F1E'/%3E%3Cpath d='M9 21V11h4.6c3.2 0 5.2 2 5.2 5s-2 5-5.2 5H9Zm3-2.4h1.5c1.9 0 3-1.1 3-2.6s-1.1-2.6-3-2.6H12v5.2Z' fill='%234ED8FF'/%3E%3Ccircle cx='22.5' cy='10.5' r='1.8' fill='%238B5CF6'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,500;12..96,600;12..96,700;12..96,800&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<div class="bg-orbs" aria-hidden="true">
+  <span class="orb orb-cyan"></span>
+  <span class="orb orb-violet"></span>
+  <span class="orb orb-teal"></span>
+</div>
+<div class="bg-grid" aria-hidden="true"></div>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <div class="shell header-inner">
+    <a href="#top" class="logo" aria-label="Dado IT home">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="30" height="30">
+          <rect width="32" height="32" rx="9" fill="url(#g1)"/>
+          <path d="M9 21.5V10.5h4.7c3.3 0 5.4 2.1 5.4 5.5s-2.1 5.5-5.4 5.5H9Zm3-2.3h1.6c2 0 3.1-1.2 3.1-3.2s-1.1-3.2-3.1-3.2H12v6.4Z" fill="#0B0F1E"/>
+          <circle cx="23" cy="10.5" r="2" fill="#0B0F1E"/>
+          <defs><linearGradient id="g1" x1="0" y1="0" x2="32" y2="32"><stop stop-color="#4ED8FF"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs>
+        </svg>
+      </span>
+      <span class="logo-word">Dado<em>IT</em></span>
+    </a>
+
+    <nav class="main-nav" id="main-nav">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#why">Why Us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="header-actions">
+      <a class="btn btn-ghost" href="#contact">Book a consult</a>
+      <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="mobileNav" aria-label="Open menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+
+  <div class="mobile-nav" id="mobileNav">
+    <a href="#services">Services</a>
+    <a href="#process">Process</a>
+    <a href="#why">Why Us</a>
+    <a href="#contact">Contact</a>
+    <a href="#contact" class="btn btn-solid">Book a consult</a>
+  </div>
+</header>
+
+<main id="main">
+
+  <!-- HERO -->
+  <section class="hero" id="top">
+    <div class="shell hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow"><span class="dot-live" aria-hidden="true"></span> All systems monitored, 24/7</p>
+        <h1>Infrastructure<br> you can <span class="gradient-text">see through.</span></h1>
+        <p class="hero-sub">Dado IT runs the systems behind your business — managed IT, cloud, cybersecurity, and software engineering — with full visibility into every layer, all the time.</p>
+        <div class="hero-actions">
+          <a href="#contact" class="btn btn-solid btn-lg">Book a consult</a>
+          <a href="#services" class="btn btn-outline btn-lg">See what we run</a>
+        </div>
+        <div class="hero-trust">
+          <span>Trusted by ops teams at</span>
+          <div class="trust-marks">
+            <span>Kelvora</span><span>Northbay Logistics</span><span>Ferrix Health</span><span>Trellis Retail</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-panel-stage" id="panelStage">
+        <div class="glass-card panel panel-main">
+          <div class="panel-head">
+            <span class="panel-title">System status</span>
+            <span class="pill pill-good">Operational</span>
+          </div>
+          <div class="panel-metric">
+            <span class="metric-value">99.98<small>%</small></span>
+            <span class="metric-label">uptime, trailing 90 days</span>
+          </div>
+          <svg class="sparkline" viewBox="0 0 200 48" preserveAspectRatio="none">
+            <polyline points="0,34 20,30 40,32 60,20 80,24 100,14 120,18 140,10 160,16 180,8 200,12" />
+          </svg>
+        </div>
+
+        <div class="glass-card panel panel-small panel-response">
+          <span class="panel-title">Avg. response</span>
+          <span class="metric-value metric-value-sm">12<small>min</small></span>
+          <span class="panel-note">↓ 4 min this quarter</span>
+        </div>
+
+        <div class="glass-card panel panel-small panel-threat">
+          <span class="panel-title">Threats blocked</span>
+          <span class="metric-value metric-value-sm">3,204</span>
+          <span class="panel-note">past 30 days</span>
+        </div>
+
+        <div class="glass-card panel panel-tag panel-tag-1">Endpoint secured</div>
+        <div class="glass-card panel panel-tag panel-tag-2">Backup verified</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- LOGO / STATS BAND -->
+  <section class="stats-band">
+    <div class="shell stats-grid">
+      <div class="stat"><span class="stat-value">99.98%</span><span class="stat-label">uptime SLA</span></div>
+      <div class="stat"><span class="stat-value">&lt;15min</span><span class="stat-label">avg. response time</span></div>
+      <div class="stat"><span class="stat-value">120+</span><span class="stat-label">systems under watch</span></div>
+      <div class="stat"><span class="stat-value">24/7</span><span class="stat-label">human coverage</span></div>
+    </div>
+  </section>
+
+  <!-- SERVICES -->
+  <section class="services" id="services">
+    <div class="shell">
+      <p class="section-eyebrow">Services</p>
+      <h2 class="section-title">Everything under one pane of glass.</h2>
+      <p class="section-sub">Six disciplines, one accountable team — so nothing falls in the gap between vendors.</p>
+
+      <div class="services-grid">
+        <article class="glass-card service-card">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 5h16v10H4z"/><path d="M9 19h6M12 15v4" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Managed IT &amp; Helpdesk</h3>
+          <p>Round-the-clock monitoring and support, so problems get fixed before your team ever files a ticket.</p>
+        </article>
+
+        <article class="glass-card service-card">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M7 17a4 4 0 1 1 .8-7.94A5 5 0 0 1 17.5 11 3.5 3.5 0 0 1 17 17.9" fill="none"/></svg>
+          </div>
+          <h3>Cloud &amp; DevOps</h3>
+          <p>Migrations, architecture, and CI/CD pipelines built for scale — not just for staying online.</p>
+        </article>
+
+        <article class="glass-card service-card">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M12 3l7 3v6c0 5-3.4 7.7-7 9-3.6-1.3-7-4-7-9V6l7-3Z" fill="none"/></svg>
+          </div>
+          <h3>Cybersecurity</h3>
+          <p>Threat monitoring, endpoint protection, and audits that keep you ahead of compliance, not scrambling for it.</p>
+        </article>
+
+        <article class="glass-card service-card">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M8 9l-4 3 4 3M16 9l4 3-4 3M14 6l-4 12" stroke-linecap="round" stroke-linejoin="round" fill="none"/></svg>
+          </div>
+          <h3>Software Development</h3>
+          <p>Custom internal tools and product engineering, taken from prototype through to production.</p>
+        </article>
+
+        <article class="glass-card service-card">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><circle cx="6" cy="6" r="2.2" fill="none"/><circle cx="18" cy="6" r="2.2" fill="none"/><circle cx="12" cy="18" r="2.2" fill="none"/><path d="M7.8 7.2 10.5 16M16.2 7.2 13.5 16M8.2 6h7.6" stroke-linecap="round"/></svg>
+          </div>
+          <h3>Network &amp; Infrastructure</h3>
+          <p>Design, deployment, and maintenance for the wiring, servers, and hardware everything else runs on.</p>
+        </article>
+
+        <article class="glass-card service-card">
+          <div class="service-icon" aria-hidden="true">
+            <svg viewBox="0 0 24 24"><path d="M4 18V10l8-6 8 6v8" fill="none" stroke-linejoin="round"/><path d="M9 18v-5h6v5" fill="none"/></svg>
+          </div>
+          <h3>IT Consulting &amp; Strategy</h3>
+          <p>A roadmap for where your stack needs to go — and a partner who stays to help build it.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROCESS -->
+  <section class="process" id="process">
+    <div class="shell">
+      <p class="section-eyebrow">How we onboard</p>
+      <h2 class="section-title">Four steps to a fully visible stack.</h2>
+
+      <div class="process-rail">
+        <div class="glass-card process-step">
+          <span class="step-index">01</span>
+          <h3>Discover</h3>
+          <p>We audit your current systems, tooling, and pain points — no guesswork, no generic checklist.</p>
+        </div>
+        <div class="glass-card process-step">
+          <span class="step-index">02</span>
+          <h3>Plan</h3>
+          <p>A roadmap and SLA sized to your team, with clear ownership for every system we touch.</p>
+        </div>
+        <div class="glass-card process-step">
+          <span class="step-index">03</span>
+          <h3>Deploy</h3>
+          <p>Migration and implementation with a zero-downtime cutover, scheduled around your business.</p>
+        </div>
+        <div class="glass-card process-step">
+          <span class="step-index">04</span>
+          <h3>Support</h3>
+          <p>24/7 monitoring, monthly reporting, and a team that answers before you have to ask twice.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- WHY US -->
+  <section class="why" id="why">
+    <div class="shell why-grid">
+      <div class="why-copy">
+        <p class="section-eyebrow">Why Dado IT</p>
+        <h2 class="section-title">We report on our own uptime, not just yours.</h2>
+        <p class="section-sub">Most IT vendors ask you to trust a black box. We hand you the dashboard — the same one our engineers watch — so "it's being handled" is something you can see, not just hear.</p>
+        <ul class="why-list">
+          <li><span class="check" aria-hidden="true">✓</span> Fixed monthly pricing, no surprise call-out fees</li>
+          <li><span class="check" aria-hidden="true">✓</span> A named engineer who knows your stack, not a ticket queue</li>
+          <li><span class="check" aria-hidden="true">✓</span> Security and backup reports you can hand straight to auditors</li>
+        </ul>
+      </div>
+
+      <div class="glass-card testimonial-card">
+        <p class="testimonial-quote">"We stopped finding out about outages from our customers. Dado's dashboard tells us first — usually before anything actually breaks."</p>
+        <div class="testimonial-person">
+          <span class="avatar" aria-hidden="true">AK</span>
+          <div>
+            <strong>Amara Kilonzo</strong>
+            <span>Operations Director, Northbay Logistics</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA BAND -->
+  <section class="cta-band">
+    <div class="shell glass-card cta-card">
+      <h2>Ready to see your own stack this clearly?</h2>
+      <p>Thirty minutes with an engineer, not a salesperson. Walk away with a written assessment either way.</p>
+      <a href="#contact" class="btn btn-solid btn-lg">Book a consult</a>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section class="contact" id="contact">
+    <div class="shell contact-grid">
+      <div class="contact-copy">
+        <p class="section-eyebrow">Contact</p>
+        <h2 class="section-title">Tell us what's breaking.</h2>
+        <p class="section-sub">Or what isn't, yet. Either way, we reply within one business day.</p>
+        <dl class="contact-list">
+          <div><dt>Email</dt><dd><a href="mailto:hello@dado-it.example">hello@dado-it.example</a></dd></div>
+          <div><dt>Phone</dt><dd><a href="tel:+15550142198">+1 (555) 014-2198</a></dd></div>
+          <div><dt>Office</dt><dd>412 Meridian Ave, Suite 300</dd></div>
+        </dl>
+      </div>
+
+      <form class="glass-card contact-form" id="contactForm">
+        <div class="field">
+          <label for="name">Name</label>
+          <input id="name" name="name" type="text" placeholder="Jordan Reyes" required>
+        </div>
+        <div class="field">
+          <label for="email">Work email</label>
+          <input id="email" name="email" type="email" placeholder="jordan@company.com" required>
+        </div>
+        <div class="field">
+          <label for="message">What's going on?</label>
+          <textarea id="message" name="message" rows="4" placeholder="A short description is fine — we'll ask the rest on the call." required></textarea>
+        </div>
+        <button type="submit" class="btn btn-solid btn-block">Send message</button>
+        <p class="form-note" id="formNote" role="status" aria-live="polite"></p>
+      </form>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="shell footer-inner">
+    <a href="#top" class="logo logo-footer" aria-label="Dado IT home">
+      <span class="logo-mark" aria-hidden="true">
+        <svg viewBox="0 0 32 32" width="26" height="26">
+          <rect width="32" height="32" rx="9" fill="url(#g2)"/>
+          <path d="M9 21.5V10.5h4.7c3.3 0 5.4 2.1 5.4 5.5s-2.1 5.5-5.4 5.5H9Zm3-2.3h1.6c2 0 3.1-1.2 3.1-3.2s-1.1-3.2-3.1-3.2H12v6.4Z" fill="#0B0F1E"/>
+          <circle cx="23" cy="10.5" r="2" fill="#0B0F1E"/>
+          <defs><linearGradient id="g2" x1="0" y1="0" x2="32" y2="32"><stop stop-color="#4ED8FF"/><stop offset="1" stop-color="#8B5CF6"/></linearGradient></defs>
+        </svg>
+      </span>
+      <span class="logo-word">Dado<em>IT</em></span>
+    </a>
+    <nav class="footer-nav">
+      <a href="#services">Services</a>
+      <a href="#process">Process</a>
+      <a href="#why">Why Us</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <p class="footer-copy">© 2026 Dado IT. Infrastructure you can see through.</p>
+  </div>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
