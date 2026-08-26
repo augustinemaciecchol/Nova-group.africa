@@ -27,8 +27,8 @@ export function Header() {
     <header
       className={`fixed inset-x-0 top-0 z-50 transition-[background,border-color,box-shadow] duration-300 ${
         scrolled
-          ? "glass-panel border-b border-[rgba(20,45,80,0.08)] shadow-[0_10px_30px_rgba(20,45,80,0.1)]"
-          : "border-b border-transparent"
+          ? "glass-panel border-b border-[rgba(12,39,64,0.08)] shadow-[0_10px_30px_rgba(12,39,64,0.1)]"
+          : "on-blueprint border-b border-transparent"
       }`}
     >
       <div className="container flex h-[72px] items-center justify-between">

@@ -59,8 +59,10 @@ export function Contact() {
                   {item.icon}
                 </span>
                 <div className="text-[0.925rem] leading-relaxed text-ink-2">
-                  <strong className="block text-ink-0">{item.label}</strong>
-                  {item.content}
+                  <strong className="mono block text-[0.75rem] uppercase tracking-wide text-ink-0">
+                    {item.label}
+                  </strong>
+                  <div className="mt-1">{item.content}</div>
                 </div>
               </li>
             ))}

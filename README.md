@@ -5,9 +5,12 @@ conglomerate operating across all 10 states of the Republic of South Sudan,
 spanning Construction, Technology, Media, Financial Services, and Oil & Gas.
 
 Built with Next.js (App Router), TypeScript, Tailwind CSS, and Framer Motion.
-The visual language blends **glassmorphism** (translucent, blurred surfaces)
-with **neomorphism** (soft dual-shadow, extruded surfaces) on a dark navy
-base with the brand's teal/blue/navy accent palette.
+The visual identity is a **"Site Survey"** system inspired by the group's own
+trade — construction, engineering, and oil & gas surveying: cyanotype
+blueprint-navy panels, dimension-line rules, coordinate stamps, and a
+survey-pin network diagram in the hero, paired with a warm paper base,
+terracotta (laterite) and brass accents, and the brand's teal carried over
+from the Quantum Synergy mark itself.
 
 ## Getting Started
 

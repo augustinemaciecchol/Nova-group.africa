@@ -18,8 +18,21 @@ const companyLinks = [
 
 export function Footer() {
   return (
-    <footer className="glass-panel border-t border-[rgba(20,45,80,0.08)]">
-      <div className="container pt-16">
+    <footer
+      className="on-blueprint relative overflow-hidden"
+      style={{ background: "linear-gradient(180deg, var(--blueprint-900), var(--blueprint-950))" }}
+    >
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 opacity-[0.05]"
+        style={{
+          backgroundImage:
+            "linear-gradient(var(--line) 1px, transparent 1px), linear-gradient(90deg, var(--line) 1px, transparent 1px)",
+          backgroundSize: "48px 48px",
+        }}
+      />
+
+      <div className="container relative pt-16">
         <div className="brand-card flex flex-col items-center gap-8 p-8 text-center sm:p-10 md:flex-row md:items-center md:text-left">
           <Image
             src="/brand/quantum-synergy-logo.png"
@@ -33,7 +46,7 @@ export function Footer() {
             <h3 className="text-lg font-bold" style={{ color: "var(--brand-ink)" }}>
               Brand Assets
             </h3>
-            <p className="mt-1.5 max-w-md text-sm leading-relaxed" style={{ color: "rgba(9,41,86,0.72)" }}>
+            <p className="mt-1.5 max-w-md text-sm leading-relaxed" style={{ color: "rgba(12,39,64,0.72)" }}>
               Official Quantum Synergy Limited logo files for press, partners, and
               procurement documentation.
             </p>
@@ -49,7 +62,7 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="container flex flex-col gap-12 py-16 md:flex-row md:justify-between">
+      <div className="container relative flex flex-col gap-12 py-16 md:flex-row md:justify-between">
         <div className="max-w-xs">
           <a href="#top" className="flex items-center gap-2.5">
             <BrandMark />
@@ -60,15 +73,17 @@ export function Footer() {
           <p className="mt-4 text-sm leading-relaxed text-ink-3">
             Quantum Synergy Limited &mdash; Where Vision Meets Execution.
           </p>
+          <p className="coord-tag mt-6">04°51&rsquo;N 31°35&rsquo;E — HQ JUBA</p>
         </div>
 
         <div className="grid grid-cols-2 gap-10 sm:gap-16">
           <div>
-            <h5 className="text-xs font-semibold uppercase tracking-wider text-ink-3">Divisions</h5>
+            <h5 className="mono text-xs font-semibold uppercase tracking-wider text-ink-3">Divisions</h5>
             <ul className="mt-4 flex flex-col gap-2.5">
-              {divisionLinks.map((l) => (
+              {divisionLinks.map((l, i) => (
                 <li key={l.label}>
                   <a href={l.href} className="text-sm text-ink-2 transition-colors hover:text-teal">
+                    <span className="mono mr-1.5 text-ink-3">0{i + 1}</span>
                     {l.label}
                   </a>
                 </li>
@@ -76,7 +91,7 @@ export function Footer() {
             </ul>
           </div>
           <div>
-            <h5 className="text-xs font-semibold uppercase tracking-wider text-ink-3">Company</h5>
+            <h5 className="mono text-xs font-semibold uppercase tracking-wider text-ink-3">Company</h5>
             <ul className="mt-4 flex flex-col gap-2.5">
               {companyLinks.map((l) => (
                 <li key={l.label}>
@@ -90,9 +105,10 @@ export function Footer() {
         </div>
       </div>
 
-      <div className="border-t border-[rgba(20,45,80,0.08)]">
-        <div className="container py-6 text-center text-xs text-ink-3">
-          &copy; {new Date().getFullYear()} Quantum Synergy Limited. All rights reserved. &middot; Republic of South Sudan
+      <div className="relative border-t border-[var(--glass-border)]">
+        <div className="container mono flex flex-col items-center justify-between gap-2 py-6 text-center text-xs text-ink-3 sm:flex-row sm:text-left">
+          <span>&copy; {new Date().getFullYear()} Quantum Synergy Limited. All rights reserved.</span>
+          <span>Republic of South Sudan &middot; 10 States</span>
         </div>
       </div>
     </footer>

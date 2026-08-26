@@ -1,38 +1,64 @@
 @import "tailwindcss";
 
 /* ---------------------------------------------------------------- *
- * Design tokens
+ * Design tokens — "Site Survey"
+ *
+ * Quantum Synergy surveys, drafts, and builds: roads, rigs, networks,
+ * ledgers. The system borrows its structure from the instruments of
+ * that trade — cyanotype blueprint paper, dimension lines, survey
+ * pins and coordinate stamps — rather than generic corporate glass.
  * ---------------------------------------------------------------- */
 
 :root {
-  --bg-950: #eef1f6;
-  --bg-900: #e5e9f1;
-  --bg-800: #dbe1ea;
-  --bg-700: #c3cddc;
+  /* Paper — the working surface most sections sit on. Cool stone,
+     not warm cream: this is drafting vellum, not a coffee-table brand. */
+  --paper-0: #f2efe5;
+  --paper-1: #e9e4d5;
+  --paper-2: #dcd5c1;
 
-  --brand-teal: #12a3b4;
-  --brand-blue: #197b9e;
-  --brand-navy: #1e4b74;
-  --brand-ink: #092956;
+  /* Blueprint — cyanotype navy, reserved for hero, footer and the
+     division "drawing sheets". */
+  --blueprint-950: #0c2740;
+  --blueprint-900: #12324c;
+  --blueprint-800: #1c4a68;
+  --blueprint-700: #2a5678;
+  --line: #6fb3d2;
 
-  --ink-0: #0c2038;
-  --ink-1: #3c4d63;
-  --ink-2: #64758c;
-  --ink-3: #7c8da5;
+  /* Brand — carried from the Quantum Synergy mark itself. */
+  --brand-teal: #14a0b2;
+  --brand-blue: #1e7ca0;
+  --brand-navy: #123049;
+  --brand-ink: #0c2740;
 
-  --glass-fill-1: rgba(255, 255, 255, 0.72);
-  --glass-fill-2: rgba(255, 255, 255, 0.32);
-  --glass-border: rgba(20, 45, 80, 0.1);
-  --glass-border-hi: rgba(20, 45, 80, 0.26);
+  /* Accents — laterite earth (energy, CTA) and brass (precision, gold). */
+  --laterite: #bd501e;
+  --laterite-soft: rgba(189, 80, 30, 0.14);
+  --brass: #b3863e;
+  --brass-soft: rgba(179, 134, 62, 0.16);
 
-  --neo-shadow-dark: rgba(157, 172, 196, 0.55);
-  --neo-shadow-light: rgba(255, 255, 255, 0.9);
+  /* Ink — body copy on paper. */
+  --ink-0: #182620;
+  --ink-1: #3c4a42;
+  --ink-2: #5f6e65;
+  --ink-3: #82918a;
+
+  --bg-950: var(--paper-0);
+  --bg-900: var(--paper-1);
+  --bg-800: var(--paper-2);
+  --bg-700: #c7bfa8;
+
+  --glass-fill-1: rgba(255, 255, 255, 0.62);
+  --glass-fill-2: rgba(255, 255, 255, 0.28);
+  --glass-border: rgba(12, 39, 64, 0.14);
+  --glass-border-hi: rgba(12, 39, 64, 0.3);
+  --glass-shadow: rgba(12, 39, 64, 0.14);
 
   --ease-out-strong: cubic-bezier(0.23, 1, 0.32, 1);
   --ease-in-out-strong: cubic-bezier(0.77, 0, 0.175, 1);
 
-  --font-display: var(--font-poppins);
-  --font-body: var(--font-inter);
+  --font-display: var(--font-space-grotesk);
+  --font-body: var(--font-source-serif);
+  --font-mono: var(--font-plex-mono);
 }
 
 @theme inline {
@@ -45,14 +71,40 @@
   --color-blue: var(--brand-blue);
   --color-navy: var(--brand-navy);
   --color-ink: var(--brand-ink);
+  --color-laterite: var(--laterite);
+  --color-brass: var(--brass);
 
   --color-ink-0: var(--ink-0);
   --color-ink-1: var(--ink-1);
   --color-ink-2: var(--ink-2);
   --color-ink-3: var(--ink-3);
 
-  --font-sans: var(--font-body);
+  --font-sans: var(--font-display);
   --font-display: var(--font-display);
+  --font-serif: var(--font-body);
+  --font-mono: var(--font-mono);
+}
+
+/* ---------------------------------------------------------------- *
+ * Dark scope — hero, footer, and division "sheet" panels swap their
+ * ink/brand variables so the very same utility classes (text-ink-0,
+ * text-teal, .text-accent…) read correctly on cyanotype navy without
+ * every component needing a light/dark variant of its own.
+ * ---------------------------------------------------------------- */
+
+.on-blueprint {
+  --ink-0: #f4f2e8;
+  --ink-1: #d3dbdc;
+  --ink-2: #a3b3b7;
+  --ink-3: #74898f;
+  --brand-teal: #5cd7e6;
+  --brand-blue: #7ec2dd;
+  --glass-fill-1: rgba(255, 255, 255, 0.1);
+  --glass-fill-2: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(207, 226, 232, 0.16);
+  --glass-border-hi: rgba(207, 226, 232, 0.32);
+  --glass-shadow: rgba(3, 13, 22, 0.45);
+  color: var(--ink-1);
 }
 
 /* ---------------------------------------------------------------- *
@@ -71,7 +123,8 @@ html {
 body {
   background: var(--bg-950);
   color: var(--ink-1);
-  font-family: var(--font-body), ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-body), ui-serif, Georgia, serif;
+  font-size: 1.0625rem;
   -webkit-font-smoothing: antialiased;
 }
 
@@ -81,13 +134,25 @@ h3,
 h4 {
   font-family: var(--font-display), ui-sans-serif, system-ui, sans-serif;
   color: var(--ink-0);
-  letter-spacing: -0.02em;
-  line-height: 1.1;
+  letter-spacing: -0.015em;
+  line-height: 1.08;
+  font-weight: 700;
+}
+
+code,
+.mono {
+  font-family: var(--font-mono), ui-monospace, "SF Mono", monospace;
 }
 
 ::selection {
-  background: var(--brand-teal);
+  background: var(--laterite);
   color: #ffffff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--laterite);
+  outline-offset: 2px;
+  border-radius: 2px;
 }
 
 /* Scrollbar */
@@ -129,6 +194,7 @@ h4 {
   max-width: 1180px;
   margin-inline: auto;
   padding-inline: 1.5rem;
+  position: relative;
 }
 
 .section {
@@ -136,24 +202,55 @@ h4 {
   padding-block: clamp(4rem, 8vw, 7.5rem);
 }
 
+/* Registration marks — a small crosshair pinned to each section's
+   working area, echoing the alignment marks on a printed sheet. Quiet
+   on purpose: felt more than seen. */
+.section > .container::before,
+.section > .container::after {
+  content: "";
+  position: absolute;
+  width: 13px;
+  height: 13px;
+  background-image: linear-gradient(var(--ink-3), var(--ink-3)),
+    linear-gradient(var(--ink-3), var(--ink-3));
+  background-size: 100% 1px, 1px 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  opacity: 0.28;
+  pointer-events: none;
+}
+.section > .container::before {
+  top: 0;
+  left: 1.5rem;
+}
+.section > .container::after {
+  bottom: 0;
+  right: 1.5rem;
+}
+@media (max-width: 640px) {
+  .section > .container::before,
+  .section > .container::after {
+    display: none;
+  }
+}
+
 .section-kicker {
   display: inline-flex;
   align-items: center;
   gap: 0.5rem;
-  font-size: 0.8125rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.75rem;
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.09em;
   text-transform: uppercase;
   color: var(--brand-teal);
-  margin-bottom: 0.75rem;
+  margin-bottom: 0.85rem;
 }
 
 .section-kicker::before {
-  content: "";
-  width: 22px;
-  height: 2px;
-  background: linear-gradient(90deg, var(--brand-teal), transparent);
-  border-radius: 2px;
+  content: "+";
+  font-weight: 500;
+  color: var(--laterite);
 }
 
 .center {
@@ -170,12 +267,9 @@ h4 {
 .center.section-kicker {
   margin-inline: auto;
 }
-.center.section-kicker::before {
-  display: none;
-}
 
 /* ---------------------------------------------------------------- *
- * Ambient background (mesh glow + grain)
+ * Ambient background — faint drafting grid instead of a color mesh.
  * ---------------------------------------------------------------- */
 
 .ambient-mesh {
@@ -184,9 +278,8 @@ h4 {
   z-index: -2;
   pointer-events: none;
   background:
-    radial-gradient(46rem 30rem at 12% -8%, rgba(18, 163, 180, 0.14), transparent 60%),
-    radial-gradient(38rem 26rem at 100% 18%, rgba(25, 123, 158, 0.12), transparent 60%),
-    radial-gradient(50rem 34rem at 40% 115%, rgba(30, 75, 116, 0.14), transparent 60%),
+    radial-gradient(52rem 34rem at 8% -6%, rgba(20, 160, 178, 0.07), transparent 60%),
+    radial-gradient(44rem 30rem at 104% 12%, rgba(189, 80, 30, 0.05), transparent 60%),
     var(--bg-950);
 }
 
@@ -195,68 +288,100 @@ h4 {
   inset: 0;
   z-index: -1;
   pointer-events: none;
-  opacity: 0.025;
+  opacity: 0.022;
   mix-blend-mode: multiply;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
 
 /* ---------------------------------------------------------------- *
- * Glass + Neomorphism hybrid surfaces
- *
- * Glassmorphism gives translucency/blur/depth (materials).
- * Neomorphism gives the dual soft-shadow "extrusion" that makes a
- * light, flat background feel like it has physical, pressable surfaces —
- * a cool gray shadow where light falls away, a bright highlight where it
- * catches, both cast on the same soft blue-gray page tone.
+ * Panels — hairline technical surfaces (replaces the old
+ * glass+neomorphism hybrid with something closer to a spec sheet:
+ * a soft plate, a thin border, one clean shadow).
  * ---------------------------------------------------------------- */
 
 .glass-neo {
   position: relative;
-  background: linear-gradient(160deg, var(--glass-fill-1), var(--glass-fill-2));
-  -webkit-backdrop-filter: blur(18px) saturate(140%);
-  backdrop-filter: blur(18px) saturate(140%);
+  background: linear-gradient(165deg, var(--glass-fill-1), var(--glass-fill-2));
+  -webkit-backdrop-filter: blur(16px) saturate(130%);
+  backdrop-filter: blur(16px) saturate(130%);
   border: 1px solid var(--glass-border);
-  border-radius: 1.25rem;
-  box-shadow:
-    9px 9px 20px var(--neo-shadow-dark),
-    -7px -7px 18px var(--neo-shadow-light),
-    inset 0 1px 0 rgba(255, 255, 255, 0.8);
+  border-radius: 0.9rem;
+  box-shadow: 0 1px 2px var(--glass-shadow), 0 14px 28px -18px var(--glass-shadow);
   transition:
-    transform 260ms var(--ease-out-strong),
-    box-shadow 260ms var(--ease-out-strong),
-    border-color 260ms var(--ease-out-strong);
+    transform 220ms var(--ease-out-strong),
+    box-shadow 220ms var(--ease-out-strong),
+    border-color 220ms var(--ease-out-strong);
 }
 
 @media (hover: hover) and (pointer: fine) {
   .glass-neo-hover:hover {
-    transform: translateY(-4px);
+    transform: translateY(-3px);
     border-color: var(--glass-border-hi);
-    box-shadow:
-      12px 12px 28px var(--neo-shadow-dark),
-      -9px -9px 22px var(--neo-shadow-light),
-      inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    box-shadow: 0 1px 2px var(--glass-shadow), 0 22px 36px -18px var(--glass-shadow);
   }
 }
 
 .glass-neo-inset {
-  background: linear-gradient(160deg, rgba(20, 45, 80, 0.05), rgba(20, 45, 80, 0.02));
+  background: linear-gradient(165deg, rgba(12, 39, 64, 0.05), rgba(12, 39, 64, 0.02));
   border: 1px solid var(--glass-border);
-  border-radius: 0.85rem;
-  box-shadow:
-    inset 5px 5px 10px rgba(157, 172, 196, 0.45),
-    inset -4px -4px 10px rgba(255, 255, 255, 0.85);
+  border-radius: 0.7rem;
+  box-shadow: inset 0 1px 2px rgba(12, 39, 64, 0.1);
 }
 
-/* Bright top edge = light catching the material (apple-design materials cue).
- * This surface floats directly over shifting hero content, so it carries a
- * near-opaque base under the blur — a thin tint alone lets the ambient glow
- * blobs smear through unevenly and wreck text contrast. */
 .glass-panel {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.88), rgba(238, 242, 247, 0.82));
-  -webkit-backdrop-filter: blur(20px) saturate(140%);
-  backdrop-filter: blur(20px) saturate(140%);
-  border-top: 1px solid rgba(255, 255, 255, 0.9);
-  border-bottom: 1px solid rgba(20, 45, 80, 0.08);
+  background: linear-gradient(180deg, rgba(242, 239, 229, 0.92), rgba(242, 239, 229, 0.86));
+  -webkit-backdrop-filter: blur(18px) saturate(130%);
+  backdrop-filter: blur(18px) saturate(130%);
+  border-top: 1px solid rgba(255, 255, 255, 0.7);
+  border-bottom: 1px solid rgba(12, 39, 64, 0.1);
+}
+
+/* Coordinate tag — the recurring mono "stamp": a sheet number, a
+   grid reference, a survey mark. */
+.coord-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  padding: 0.4rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid var(--glass-border-hi);
+  color: var(--ink-2);
+  background: var(--glass-fill-2);
+}
+
+.coord-tag .dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 999px;
+  background: var(--laterite);
+  flex-shrink: 0;
+}
+
+/* Dimension rule — a labelled hairline, like an engineering drawing's
+   dimension line, used to mark a hand-off between sections. */
+.dim-rule {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  color: var(--ink-3);
+}
+.dim-rule::before,
+.dim-rule::after {
+  content: "";
+  flex: 1;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--glass-border-hi) 15%, var(--glass-border-hi) 85%, transparent);
+}
+.dim-rule span {
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.7rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  white-space: nowrap;
 }
 
 /* ---------------------------------------------------------------- *
@@ -269,9 +394,10 @@ h4 {
   justify-content: center;
   gap: 0.5rem;
   padding: 0.85rem 1.6rem;
-  border-radius: 999px;
+  border-radius: 0.6rem;
+  font-family: var(--font-display), ui-sans-serif, sans-serif;
   font-weight: 600;
-  font-size: 0.9375rem;
+  font-size: 0.9rem;
   white-space: nowrap;
   transition: transform 160ms var(--ease-out-strong), box-shadow 200ms var(--ease-out-strong),
     border-color 200ms var(--ease-out-strong), background 200ms var(--ease-out-strong);
@@ -282,36 +408,30 @@ h4 {
 }
 
 .btn-primary {
-  color: #ffffff;
-  background: linear-gradient(135deg, var(--brand-teal), var(--brand-blue));
-  box-shadow:
-    6px 6px 16px rgba(157, 172, 196, 0.6),
-    -4px -4px 12px rgba(255, 255, 255, 0.7),
-    inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  color: #fff7ef;
+  background: var(--laterite);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.18) inset, 0 10px 22px -10px rgba(189, 80, 30, 0.55);
 }
 
 @media (hover: hover) and (pointer: fine) {
   .btn-primary:hover {
-    box-shadow:
-      8px 8px 20px rgba(157, 172, 196, 0.7),
-      -5px -5px 14px rgba(255, 255, 255, 0.8),
-      inset 0 1px 0 rgba(255, 255, 255, 0.4);
+    background: #a8481b;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.18) inset, 0 12px 26px -10px rgba(189, 80, 30, 0.6);
   }
 }
 
 .btn-outline {
   color: var(--ink-0);
-  background: rgba(255, 255, 255, 0.55);
+  background: var(--glass-fill-2);
   border: 1px solid var(--glass-border-hi);
-  -webkit-backdrop-filter: blur(12px);
-  backdrop-filter: blur(12px);
-  box-shadow: 0 1px 3px rgba(20, 45, 80, 0.08);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
 }
 
 @media (hover: hover) and (pointer: fine) {
   .btn-outline:hover {
-    border-color: rgba(20, 45, 80, 0.4);
-    background: rgba(255, 255, 255, 0.85);
+    border-color: var(--brand-teal);
+    background: var(--glass-fill-1);
   }
 }
 
@@ -321,31 +441,26 @@ h4 {
 
 .btn-ghost-light {
   color: var(--brand-ink);
-  background: rgba(9, 41, 86, 0.06);
-  border: 1px solid rgba(9, 41, 86, 0.18);
+  background: rgba(12, 39, 64, 0.06);
+  border: 1px solid rgba(12, 39, 64, 0.18);
 }
 
 @media (hover: hover) and (pointer: fine) {
   .btn-ghost-light:hover {
-    background: rgba(9, 41, 86, 0.1);
-    border-color: rgba(9, 41, 86, 0.34);
+    background: rgba(12, 39, 64, 0.1);
+    border-color: rgba(12, 39, 64, 0.34);
   }
 }
 
 /* ---------------------------------------------------------------- *
- * Brand kit card — an elevated white plate the logo's own white
- * backing sits on seamlessly, lifted off the footer with a soft,
- * cool-toned shadow instead of a harsh dark one.
+ * Brand kit card
  * ---------------------------------------------------------------- */
 
 .brand-card {
   position: relative;
-  border-radius: 1.75rem;
-  background: linear-gradient(165deg, #ffffff, #f1f4f8);
-  box-shadow:
-    0 20px 45px rgba(20, 45, 80, 0.14),
-    0 1px 0 rgba(255, 255, 255, 0.9) inset,
-    0 -14px 30px rgba(9, 41, 86, 0.04) inset;
+  border-radius: 1.1rem;
+  background: linear-gradient(165deg, #faf8f1, var(--paper-1));
+  box-shadow: 0 20px 45px rgba(3, 13, 22, 0.35), 0 1px 0 rgba(255, 255, 255, 0.7) inset;
 }
 
 /* ---------------------------------------------------------------- *
@@ -360,7 +475,7 @@ h4 {
 }
 
 /* ---------------------------------------------------------------- *
- * Form fields (neomorphic inset)
+ * Form fields
  * ---------------------------------------------------------------- */
 
 .field {
@@ -371,8 +486,11 @@ h4 {
 }
 
 .field label {
-  font-size: 0.8125rem;
-  font-weight: 600;
+  font-family: var(--font-mono), ui-monospace, monospace;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
   color: var(--ink-2);
 }
 
@@ -381,13 +499,11 @@ h4 {
 .field textarea {
   font: inherit;
   color: var(--ink-0);
-  background: linear-gradient(160deg, rgba(20, 45, 80, 0.05), rgba(20, 45, 80, 0.02));
+  background: var(--glass-fill-2);
   border: 1px solid var(--glass-border);
-  border-radius: 0.7rem;
+  border-bottom: 2px solid var(--glass-border-hi);
+  border-radius: 0.5rem;
   padding: 0.75rem 0.9rem;
-  box-shadow:
-    inset 4px 4px 9px rgba(157, 172, 196, 0.4),
-    inset -3px -3px 8px rgba(255, 255, 255, 0.7);
   transition: border-color 180ms var(--ease-out-strong), box-shadow 180ms var(--ease-out-strong);
 }
 
@@ -400,16 +516,13 @@ h4 {
 .field select:focus,
 .field textarea:focus {
   outline: none;
-  border-color: var(--brand-teal);
-  box-shadow:
-    inset 4px 4px 9px rgba(157, 172, 196, 0.4),
-    inset -3px -3px 8px rgba(255, 255, 255, 0.7),
-    0 0 0 3px rgba(18, 163, 180, 0.2);
+  border-bottom-color: var(--laterite);
+  box-shadow: 0 0 0 3px var(--laterite-soft);
 }
 
 .field select {
   appearance: none;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%2364758c' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%235f6e65' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
   background-repeat: no-repeat;
   background-position: right 0.85rem center;
   padding-right: 2.25rem;
