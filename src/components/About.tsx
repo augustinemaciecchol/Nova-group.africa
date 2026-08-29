@@ -30,15 +30,16 @@ export function About() {
           </div>
 
           <ul className="mt-7 flex flex-col gap-1">
-            {verticals.map((v) => (
+            {verticals.map((v, i) => (
               <li
                 key={v.label}
-                className="flex items-center gap-3.5 rounded-xl px-3 py-3 text-[0.95rem] font-medium text-ink-1 transition-colors duration-200 hover:bg-[rgba(20,45,80,0.05)]"
+                className="flex items-center gap-3.5 rounded-xl px-3 py-3 text-[0.95rem] font-medium text-ink-1 transition-colors duration-200 hover:bg-[rgba(12,39,64,0.05)]"
               >
                 <span className="glass-neo flex h-9 w-9 shrink-0 items-center justify-center rounded-xl text-base" aria-hidden="true">
                   {v.icon}
                 </span>
                 {v.label}
+                <span className="mono ml-auto text-[0.7rem] text-ink-3">0{i + 1}</span>
               </li>
             ))}
           </ul>

@@ -128,9 +128,9 @@ export const divisions: Division[] = [
 
 export const board = [
   {
-    name: "Dut Abraham",
+    name: "Simon Kolnyin Chol",
     role: "Chairman",
-    bio: "Visionary Strategist with over 30 years of experience in East African infrastructure and policy advocacy. He drives the group's long-term sustainability and governmental relations, ensuring strategic alignment with national development goals.",
+    bio: "Electrical Engineer and Visionary Strategist bringing a technical, standards-driven lens to the group's national infrastructure and energy ambitions. He drives the group's long-term sustainability and governmental relations, ensuring strategic alignment with national development goals.",
   },
   {
     name: "Maciec Marko Maciec",

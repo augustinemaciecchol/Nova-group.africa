@@ -1,12 +1,35 @@
 import { Reveal, RevealGroup, RevealItem } from "./Reveal";
 import { board, council } from "@/lib/data";
 
-function Avatar({ size = 40 }: { size?: number }) {
+// Initials monogram standing in for a portrait — set inside a badge
+// shaped like a site-access card, notch and all.
+function Badge({
+  name,
+  accent = "brass",
+  size = "lg",
+}: {
+  name: string;
+  accent?: "brass" | "teal";
+  size?: "lg" | "sm";
+}) {
+  const initials = name
+    .split(" ")
+    .map((w) => w[0])
+    .slice(0, 2)
+    .join("");
   return (
-    <svg viewBox="0 0 64 64" width={size} height={size} aria-hidden="true">
-      <circle cx="32" cy="24" r="12" fill="#15A3B4" />
-      <path d="M12 56c0-12 9-20 20-20s20 8 20 20" fill="#15A3B4" />
-    </svg>
+    <div
+      className={`flex shrink-0 items-center justify-center rounded-xl border font-bold ${
+        size === "lg" ? "h-14 w-14 text-[1.05rem]" : "h-11 w-11 text-[0.85rem]"
+      }`}
+      style={{
+        borderColor: accent === "brass" ? "var(--brass)" : "var(--brand-teal)",
+        color: accent === "brass" ? "var(--brass)" : "var(--brand-teal)",
+        background: accent === "brass" ? "var(--brass-soft)" : "rgba(20,160,178,0.1)",
+      }}
+    >
+      {initials}
+    </div>
   );
 }
 
@@ -20,11 +43,15 @@ export function Leadership() {
         </Reveal>
 
         <RevealGroup className="mt-12 grid gap-6 sm:grid-cols-2">
-          {board.map((person) => (
-            <RevealItem key={person.name} className="glass-neo glass-neo-hover p-8">
-              <div className="glass-neo flex h-16 w-16 items-center justify-center rounded-2xl">
-                <Avatar />
-              </div>
+          {board.map((person, i) => (
+            <RevealItem key={person.name} className="glass-neo glass-neo-hover relative overflow-hidden p-8">
+              <span
+                aria-hidden="true"
+                className="mono absolute right-6 top-7 text-[0.68rem] tracking-widest text-ink-3"
+              >
+                ID&nbsp;0{i + 1}
+              </span>
+              <Badge name={person.name} accent="brass" />
               <h3 className="mt-5 text-xl font-bold text-ink-0">{person.name}</h3>
               <p className="mt-0.5 text-sm font-semibold text-teal">{person.role}</p>
               <p className="mt-3 text-[0.9rem] leading-relaxed text-ink-2">{person.bio}</p>
@@ -33,18 +60,24 @@ export function Leadership() {
         </RevealGroup>
 
         <Reveal delay={0.1} className="mt-16">
-          <h3 className="text-center text-xl font-bold text-ink-0">The Executive Council</h3>
+          <div className="dim-rule">
+            <span>Executive Council</span>
+          </div>
         </Reveal>
 
         <RevealGroup className="mt-8 grid gap-5 sm:grid-cols-2" stagger={0.06}>
-          {council.map((person) => (
+          {council.map((person, i) => (
             <RevealItem
               key={person.name}
-              className="glass-neo glass-neo-hover flex items-start gap-4 p-6"
+              className="glass-neo glass-neo-hover relative flex items-start gap-4 p-6"
             >
-              <div className="glass-neo flex h-12 w-12 shrink-0 items-center justify-center rounded-xl">
-                <Avatar size={26} />
-              </div>
+              <span
+                aria-hidden="true"
+                className="mono absolute right-5 top-5 text-[0.65rem] tracking-widest text-ink-3"
+              >
+                ID&nbsp;{String(i + 3).padStart(2, "0")}
+              </span>
+              <Badge name={person.name} accent="teal" size="sm" />
               <div>
                 <h4 className="font-semibold text-ink-0">{person.name}</h4>
                 <p className="text-[0.8rem] font-semibold text-teal">{person.role}</p>

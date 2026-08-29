@@ -18,7 +18,7 @@ export function Edge() {
               </span>
               <h3 className="mt-6 text-lg font-bold text-ink-0">{item.title}</h3>
               <p className="mt-2.5 flex-1 text-[0.9rem] leading-relaxed text-ink-2">{item.body}</p>
-              <p className="mt-5 text-xs font-semibold uppercase tracking-wider text-teal">
+              <p className="mono mt-5 text-xs font-semibold uppercase tracking-wider text-teal">
                 {item.tag}
               </p>
             </RevealItem>
