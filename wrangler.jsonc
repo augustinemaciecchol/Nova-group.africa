@@ -1,0 +1,10 @@
+{
+  // Deploys the Next.js static export (next.config.ts sets output: "export")
+  // as a Workers static-asset site — no Worker script needed.
+  "name": "quantum-synergy-limited",
+  "compatibility_date": "2024-09-23",
+  "assets": {
+    "directory": "./out",
+    "not_found_handling": "404-page"
+  }
+}
